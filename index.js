@@ -6,8 +6,6 @@ if (process.env.NODE_ENV !== 'production')
   require('dotenv').config()
 
 const { PORT, DB_URL } = process.env
-console.log(PORT)
-console.log(DB_URL)
 require('./mongoose')(DB_URL)
 
 //body-parser
@@ -34,4 +32,4 @@ app.get('/', (req, res) => {
   res.send('Welcome')
 })
 
-app.listen(PORT, () => console.log(`API is running on port ${PORT}!`))
+app.listen(PORT || 8080, () => console.log(`API is running on port ${PORT || 8080}!`))
